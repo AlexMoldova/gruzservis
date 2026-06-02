@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ГрузСервіс | Вантажні перевезення в Кам'янському</title>
+    <meta name="description" content="ГрузСервіс — надійні вантажні перевезення по Кам'янському та всій Україні. Квартирні та офісні переїзди, вивіз сміття, демонтаж. Окрема машина до 3 тон.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* Header / Hero */
+        .hero {
+            background: linear-gradient(135deg, #1a237e 0%, #0d47a1 50%, #01579b 100%);
+            color: #fff;
+            padding: 60px 20px 50px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.2); opacity: 1; }
+        }
+        .hero h1 {
+            font-size: 2.8em;
+            font-weight: 800;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+            letter-spacing: 2px;
+        }
+        .hero .subtitle {
+            font-size: 1.3em;
+            opacity: 0.9;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 1;
+        }
+        .hero .tagline {
+            font-size: 1.1em;
+            opacity: 0.8;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+        }
+        .hero .phone-big {
+            display: inline-block;
+            background: #ff6f00;
+            color: #fff;
+            padding: 16px 45px;
+            border-radius: 50px;
+            font-size: 1.6em;
+            font-weight: 700;
+            text-decoration: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 4px 20px rgba(255,111,0,0.4);
+        }
+        .hero .phone-big:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 30px rgba(255,111,0,0.6);
+        }
+
+        /* Nav */
+        nav {
+            background: #0d47a1;
+            padding: 12px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 5px 20px;
+            padding: 0 15px;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1em;
+            padding: 6px 12px;
+            border-radius: 4px;
+            transition: background 0.3s;
+            white-space: nowrap;
+        }
+        nav ul li a:hover {
+            background: rgba(255,255,255,0.15);
+        }
+
+        /* Sections */
+        section { padding: 60px 20px; }
+        .container { max-width: 1100px; margin: 0 auto; }
+        .section-title {
+            text-align: center;
+            font-size: 2em;
+            color: #0d47a1;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: #ff6f00;
+            margin: 12px auto 0;
+        }
+
+        /* About */
+        .about {
+            background: #f5f7fa;
+        }
+        .about-text {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.1em;
+        }
+
+        /* Services */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        .service-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 30px 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+            border: 1px solid #e8eaf6;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+        .service-card .icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+        .service-card h3 {
+            color: #0d47a1;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+        .service-card p {
+            color: #666;
+            font-size: 0.95em;
+        }
+
+        /* Why us */
+        .why-us {
+            background: #e8eaf6;
+        }
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+        .benefit-item {
+            background: #fff;
+            border-radius: 10px;
+            padding: 25px 20px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+        }
+        .benefit-item .icon { font-size: 2.5em; margin-bottom: 10px; }
+        .benefit-item h4 { color: #1a237e; margin-bottom: 5px; }
+
+        /* Truck highlight */
+        .truck-highlight {
+            background: linear-gradient(135deg, #ff6f00, #ff8f00);
+            color: #fff;
+            text-align: center;
+            padding: 40px 20px;
+        }
+        .truck-highlight h2 { font-size: 2em; margin-bottom: 10px; }
+        .truck-highlight p { font-size: 1.2em; opacity: 0.95; }
+        .truck-highlight .phone-btn {
+            display: inline-block;
+            margin-top: 20px;
+            background: #fff;
+            color: #ff6f00;
+            padding: 14px 40px;
+            border-radius: 50px;
+            font-size: 1.2em;
+            font-weight: 700;
+            text-decoration: none;
+            transition: transform 0.3s;
+        }
+        .truck-highlight .phone-btn:hover { transform: scale(1.05); }
+
+        /* Contacts */
+        .contacts {
+            background: #f5f7fa;
+        }
+        .contact-info {
+            text-align: center;
+            font-size: 1.15em;
+        }
+        .contact-info p { margin-bottom: 12px; }
+        .contact-info .phone-link {
+            display: inline-block;
+            background: #0d47a1;
+            color: #fff;
+            padding: 14px 40px;
+            border-radius: 50px;
+            font-size: 1.3em;
+            font-weight: 700;
+            text-decoration: none;
+            margin-top: 10px;
+            transition: background 0.3s;
+        }
+        .contact-info .phone-link:hover { background: #1565c0; }
+
+        /* Footer */
+        footer {
+            background: #1a237e;
+            color: rgba(255,255,255,0.8);
+            text-align: center;
+            padding: 25px 20px;
+            font-size: 0.9em;
+        }
+        footer .city { color: #ffcc02; font-weight: 600; }
+
+        /* Mobile */
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 2em; }
+            .hero .phone-big { font-size: 1.2em; padding: 14px 30px; }
+            .section-title { font-size: 1.6em; }
+            nav ul { gap: 3px 10px; }
+            nav ul li a { font-size: 0.85em; padding: 5px 8px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Hero -->
+<header class="hero">
+    <h1>🚛 ГРУЗСЕРВІС</h1>
+    <div class="subtitle">Вантажні перевезення в Кам'янському та по всій Україні</div>
+    <div class="tagline">Швидко. Надійно. Безпечно.</div>
+    <a href="tel:+380933715458" class="phone-big">📞 +38 (093) 371-54-58</a>
+</header>
+
+<!-- Nav -->
+<nav>
+    <ul>
+        <li><a href="#about">Про нас</a></li>
+        <li><a href="#services">Послуги</a></li>
+        <li><a href="#truck">Окрема машина</a></li>
+        <li><a href="#why-us">Чому ми</a></li>
+        <li><a href="#contacts">Контакти</a></li>
+    </ul>
+</nav>
+
+<!-- About -->
+<section class="about" id="about">
+    <div class="container">
+        <h2 class="section-title">Про компанію</h2>
+        <div class="about-text">
+            <p><strong>«ГрузСервіс»</strong> – це надійна компанія, яка спеціалізується на вантажних перевезеннях та комплексних послугах з переїздів по місту Кам'янське та всій Україні.</p>
+            <p style="margin-top:15px;">Ми допомагаємо нашим клієнтам швидко, зручно та безпечно організувати перевезення квартир, будинків, дач та офісів. Наші досвідчені вантажники акуратно упакують, завантажать та доставлять ваші речі у потрібне місце.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Services -->
+<section id="services">
+    <div class="container">
+        <h2 class="section-title">Наші послуги</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="icon">🏠</div>
+                <h3>Квартирні переїзди</h3>
+                <p>Перевезення меблів та речей у межах міста та за його межами. Акуратне пакування, завантаження та доставка.</p>
+            </div>
+            <div class="service-card">
+                <div class="icon">🏢</div>
+                <h3>Офісні переїзди</h3>
+                <p>Організація переміщення офісного обладнання, меблів та документації з мінімальним простоєм роботи.</p>
+            </div>
+            <div class="service-card">
+                <div class="icon">🏡</div>
+                <h3>Переїзди будинків та дач</h3>
+                <p>Великогабаритні перевезення заміських будинків та дач. Надійна техніка для будь-яких об'ємів.</p>
+            </div>
+            <div class="service-card">
+                <div class="icon">📦</div>
+                <h3>Пакування речей</h3>
+                <p>Професійне пакування крихких та габаритних предметів. Коробки, стрейч-плівка, захист меблів.</p>
+            </div>
+            <div class="service-card">
+                <div class="icon">🔧</div>
+                <h3>Демонтаж та винос</h3>
+                <p>Демонтаж старих меблів, сантехніки, дверей. Винос непотрібного майна з приміщення.</p>
+            </div>
+            <div class="service-card">
+                <div class="icon">🗑️</div>
+                <h3>Вивіз сміття</h3>
+                <p>Оперативний вивіз будівельного та побутового сміття. Окрема машина для великих об'ємів.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Truck highlight -->
+<section class="truck-highlight" id="truck">
+    <div class="container">
+        <h2>🚛 Окрема машина до 3 тон</h2>
+        <p>Потрібна окрема машина для вашого переїзду? Надаємо авто вантажопідйомністю <strong>до 3 тонн</strong>.</p>
+        <p style="margin-top:10px; font-size:1em;">Ідеально для: квартирні переїзди, вивіз сміття, доставка меблів, перевезення будматеріалів.</p>
+        <a href="tel:+380933715458" class="phone-btn">📞 Замовити машину</a>
+    </div>
+</section>
+
+<!-- Why us -->
+<section class="why-us" id="why-us">
+    <div class="container">
+        <h2 class="section-title">Чому обирають нас</h2>
+        <div class="benefits-grid">
+            <div class="benefit-item">
+                <div class="icon">⏱️</div>
+                <h4>Швидко</h4>
+                <p>Приїжджаємо в узгоджений час, без запізнень. Цінуємо ваш час.</p>
+            </div>
+            <div class="benefit-item">
+                <div class="icon">🤝</div>
+                <h4>Надійно</h4>
+                <p>Досвідчені вантажники з акуратним ставленням до вашого майна.</p>
+            </div>
+            <div class="benefit-item">
+                <div class="icon">💰</div>
+                <h4>Доступно</h4>
+                <p>Прозорі ціни без прихованих платежів. Працюємо з фізособами та юрособами.</p>
+            </div>
+            <div class="benefit-item">
+                <div class="icon">🏙️</div>
+                <h4>По всій Україні</h4>
+                <p>Працюємо не тільки в Кам'янському, а й по всій території України.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contacts -->
+<section class="contacts" id="contacts">
+    <div class="container">
+        <h2 class="section-title">Контакти</h2>
+        <div class="contact-info">
+            <p><strong>📞 Телефон:</strong></p>
+            <a href="tel:+380933715458" class="phone-link">+38 (093) 371-54-58</a>
+            <p style="margin-top:25px;"><strong>📍 Місто:</strong> Кам'янське, Україна</p>
+            <p><strong>🕐 Графік:</strong> Пн–Нд, цілодобово (за домовленістю)</p>
+            <p style="margin-top:15px; color:#666;">Зв'яжіться з нами — і ми організуємо ваш переїзд швидко та без зайвого клопоту!</p>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <p>© 2026 <strong>ГрузСервіс</strong> — вантажні перевезення в <span class="city">Кам'янському</span></p>
+        <p style="margin-top:8px; font-size:0.85em;">Квартирні переїзди | Вивіз сміття | Окрема машина до 3 тон</p>
+    </div>
+</footer>
+
+</body>
+</html>
